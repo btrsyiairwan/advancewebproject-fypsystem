@@ -7,26 +7,28 @@ use App\Models\Student;
 
 class svControl extends Controller
 {
-    function listOut(){
+    function listOut()
+    {
         $data=Student::all();
-        return view('svdisplay',['list'=>$data]);
+        return view('supervisor.supervisorlist',['list'=>$data]);
     }
+
     function showStud($id)
     {
         $data=Student::find($id);
-        return view('updateStud',['disp'=>$data]);
+        return view('supervisor.updateStud',['disp'=>$data]);
     }
 
     function update(Request $req)
     {
         $data=Student::find($req->id);
 
-        // $data->projecttype = $req->projecttype;
-        // $data->projecttitle = $req->projecttitle;
-        // $data->student = $req->student;
-        // $data->supervisor = $req->supervisor;
-        // $data->examiner1 = $req->examiner1;
-        // $data->examiner2 = $req->examiner2;
+        $data->projecttype = $req->projecttype;
+        $data->projecttitle = $req->projecttitle;
+        $data->student = $req->student;
+        $data->supervisor = $req->supervisor;
+        $data->examiner1 = $req->examiner1;
+        $data->examiner2 = $req->examiner2;
         $data->startdate = $req->startdate;
         $data->enddate = $req->enddate;
         $data->duration = $req->duration;
@@ -35,7 +37,7 @@ class svControl extends Controller
 
         $data->save();
 
-        return redirect('list');
+        return redirect('supervisorlist');
     }
 }
 

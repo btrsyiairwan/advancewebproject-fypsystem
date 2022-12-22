@@ -35,7 +35,16 @@ class adminControl extends Controller
         $output->status = $req->input('status');
         $output->save();
         return redirect('projectlist');
-        // return redirect('list');
+    }
+
+    function deleteStud($id)
+    {
+        $data=Student::find($id);
+
+        $data->delete();
+
+        return redirect('projectlist');
+
     }
     
     

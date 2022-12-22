@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Student;
 
 class homeControl extends Controller
 {
     function index(){
-        return view('home');
+        $output=Student::all();
+        return view('home',['list'=>$output]);
     }
 
     function redirectFunct(){
@@ -22,8 +24,10 @@ class homeControl extends Controller
 
         else
         {
-        return view('home');
-        }
+        // return view('home');
+        // return view('main');
+        return view('supervisor.supervisorpage');
+    }
     }
     
 }
