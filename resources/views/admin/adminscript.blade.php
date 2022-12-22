@@ -1,6 +1,3 @@
-<x-app-layout>
-    
-</x-app-layout>
 <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="admin/assets/vendors/js/vendor.bundle.base.js"></script>
